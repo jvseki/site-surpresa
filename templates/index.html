@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* Ajuste extra para o Iframe do YouTube ficar responsivo */
         .video-wrapper {
             position: relative;
-            padding-bottom: 177.77%; /* Proporção 9:16 para Shorts (Vertical) */
+            padding-bottom: 177.77%;
             height: 0;
             overflow: hidden;
             max-width: 350px;
@@ -43,13 +42,13 @@
         <div class="video-wrapper">
             <iframe 
                 id="player-youtube"
-                src="https://www.youtube.com/embed/ar146ORwQYA?enablejsapi=1&rel=0&showinfo=0&autoplay=0" 
+                src="https://www.youtube.com/embed/ar146ORwQYA" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
                 allowfullscreen>
             </iframe>
         </div>
-        <button id="next-btn" style="margin-top: 20px; font-family: 'Press Start 2P'; font-size: 10px; padding: 10px; cursor: pointer;">Clique aqui após o vídeo ❤️</button>
+        <button id="next-btn" class="estilo-botao" style="margin-top: 20px;">Clique aqui após o vídeo ❤️</button>
     </div>
 
     <div id="final-message" class="pixel-text" style="display: none;">
@@ -60,7 +59,6 @@
     </div>
 
     <script>
-        // Configurações
         const mensagem = "Meu amor, este site foi dedicado a você, a mulher mais incrível do mundo que eu tive o privilégio de estar ao lado e, principalmente, poder compartilhar minha vida maluca e tirar alguns risos. Nossa relação vale mais que mil beijos e abraços, pois estar ao seu lado significa querer crescer como pessoa e sempre torcer pelas suas conquistas. Como eu já havia falado antes, é um crime falarem que são apenas 7 maravilhas do mundo, sendo que todo dia, nem que seja por 5 minutos, eu consigo conversar e rir com a oitava maravilha do mundo! Eu te amo muito, meu amor! <3";
 
         const startOverlay = document.getElementById("start-overlay");
@@ -70,50 +68,44 @@
         const finalMessage = document.getElementById("final-message");
         const nextBtn = document.getElementById("next-btn");
         const audio = document.getElementById("musica-fundo");
-        const iframe = document.getElementById("player-youtube");
+
+     
+        const btnPular = document.createElement("button");
+        btnPular.innerText = "Ver a parte especial ❤️";
+        btnPular.className = "estilo-botao";
+        btnPular.style.display = "block";
+        btnPular.style.margin = "20px auto";
 
         let i = 0;
-        const speed = 60; // Velocidade da digitação
+        const speed = 60;
 
-        // Iniciar Surpresa
         startBtn.addEventListener("click", () => {
             startOverlay.style.display = "none";
             textContainer.style.display = "block";
-            
-            // Inicia música no minuto 1:04 (64 segundos)
             audio.currentTime = 64; 
             audio.play();
-            
             typeWriter();
         });
 
-        // Função de Digitação
         function typeWriter() {
             if (i < mensagem.length) {
                 textContainer.innerHTML += mensagem.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed);
             } else {
-                // Terminou o texto, espera 7 segundos e mostra o vídeo
-                setTimeout(() => {
-                    textContainer.style.display = "none";
-                    videoContainer.style.display = "block";
-                    
-                    // Pausa a música para ela ouvir o som do vídeo
-                    audio.pause();
-                    
-                    // Tenta dar play no YouTube (alguns browsers bloqueiam, ela pode ter de carregar no play do vídeo)
-                    iframe.src += "&autoplay=1";
-                }, 7000);
+                textContainer.appendChild(btnPular);
             }
         }
 
-        // Finalizar e mostrar mensagem de amor
+        btnPular.addEventListener("click", () => {
+            textContainer.style.display = "none";
+            videoContainer.style.display = "block";
+            audio.pause();
+        });
+
         nextBtn.addEventListener("click", () => {
             videoContainer.style.display = "none";
             finalMessage.style.display = "block";
-            
-            // Volta a música em loop
             audio.play();
         });
     </script>
