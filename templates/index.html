@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="musica-fundo" loop>
+        <source src="{{ url_for('static', filename='musica.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <div id="start-overlay">
+        <button id="start-btn">Toque aqui para ver sua surpresa ❤️</button>
+    </div>
+
+    <div id="text-container" class="pixel-text" style="display: none;"></div>
+
+    <div id="video-container" style="display: none;">
+        <video id="meu-video" playsinline>
+            <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+            Seu navegador não suporta o vídeo.
+        </video>
+    </div>
+
+    <div id="final-message" class="pixel-text" style="display: none;">
+        Bom, essa foi a surpresa...<br><br>
+        Espero que você tenha gostado meu xuxu.<br><br>
+        Te amo infinitamente!<br><br>
+        <span class="simbolos">∞ ❤️</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

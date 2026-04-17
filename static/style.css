@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.login-container {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 100, 0.2);
+}
+
+.login-container h2 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container input {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.login-container button {
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #ad144b;
+}
+
+.erro {
+    color: #ff4c4c;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px; 
+    line-height: 2;
+    max-width: 90%;
+    color: #ffb6c1; 
+    text-shadow: 2px 2px 0px #000;
+}
+
+
+#video-container {
+    width: 100%;
+    max-width: 350px; 
+    animation: fadeIn 2s ease-in;
+}
+
+video {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+#start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#start-btn {
+    background-color: #d81b60;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    line-height: 1.5;
+    box-shadow: 0 0 15px rgba(216, 27, 96, 0.5);
+    animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+#final-message {
+    font-size: 14px;
+    line-height: 2.5;
+    animation: fadeIn 2s ease-in;
+}
+
+.simbolos {
+    font-size: 30px;
+    letter-spacing: 15px;
+    color: #ff4c4c;
+}
