@@ -1,6 +1,8 @@
+/* Importação da fonte pixel */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    background-color: #1a1a1a;
+    background-color: #0d0d0d;
     color: #ffffff;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
@@ -14,46 +16,64 @@ body {
     box-sizing: border-box;
 }
 
-
-.pixel-text {
-    font-size: 12px; 
-    line-height: 2;
-    max-width: 90%;
-    margin: 20px auto;
-    color: #fce4ec;
+/* Redesign do Overlay Inicial */
+#start-overlay {
+    background: rgba(26, 26, 26, 0.95);
+    padding: 40px;
+    border: 4px solid #d81b60;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(216, 27, 96, 0.3);
+    max-width: 80%;
 }
 
-
+/* Estilo unificado para todos os botões */
 #start-btn, .estilo-botao {
     background-color: #d81b60;
     color: white;
     border: none;
-    padding: 15px 20px;
+    padding: 20px 30px;
     font-family: 'Press Start 2P', cursive;
     cursor: pointer;
     border-radius: 10px;
-    font-size: 10px;
-    transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    font-size: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 0 #880e4f;
+    margin: 10px;
 }
 
 #start-btn:hover, .estilo-botao:hover {
-    background-color: #ad1457;
-    transform: scale(1.05);
+    background-color: #ec407a;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 0 #880e4f;
 }
 
+#start-btn:active, .estilo-botao:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 #880e4f;
+}
 
+/* Estilo para o texto de digitação */
+.pixel-text {
+    font-size: 13px;
+    line-height: 2.2;
+    max-width: 85%;
+    margin: 20px auto;
+    color: #fce4ec;
+    text-shadow: 2px 2px #000;
+}
+
+/* Container do Vídeo */
 .video-wrapper {
     position: relative;
     padding-bottom: 177.77%; 
     height: 0;
     overflow: hidden;
-    max-width: 320px; 
+    max-width: 320px;
     width: 100%;
-    margin: 10px auto;
+    margin: 20px auto;
     border-radius: 15px;
-    border: 3px solid #d81b60;
-    box-shadow: 0 0 20px rgba(216, 27, 96, 0.4);
+    border: 4px solid #d81b60;
+    box-shadow: 0 0 25px rgba(216, 27, 96, 0.5);
 }
 
 .video-wrapper iframe {
@@ -65,9 +85,10 @@ body {
     border: none;
 }
 
-
+/* Mensagem Final */
 .simbolos {
-    font-size: 20px;
+    font-size: 30px;
     display: block;
-    margin-top: 20px;
+    margin-top: 30px;
+    color: #d81b60;
 }
